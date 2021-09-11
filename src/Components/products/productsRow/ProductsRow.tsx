@@ -1,5 +1,5 @@
 // Types
-import { IProduct } from '../../../Types/product.type';
+import { IProduct } from '../../../Types/product.t';
 // Components
 import { Product } from '../product/Product';
 // Style

@@ -3,7 +3,7 @@ import axios from 'axios';
 // Utils
 import { getRandomNumber } from '../../Utils/numbersUtil';
 // Types
-import { IProduct } from '../../Types/product.type';
+import { IProduct } from '../../Types/product.t';
 
 export const fetchProducts = async (): Promise<any> => {
   const url = 'http://localhost:5000/products';

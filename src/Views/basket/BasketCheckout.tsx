@@ -1,13 +1,16 @@
+// Core
+import { useContext } from 'react';
+import { ProductsContext } from '../../Context/ProductsContext';
 // Components
 // import { Row } from './Row';
-
+// import CurrencyFormat from 'react-currency-format';
 // Styles
 import './basket.css';
 
 export const BasketCheckout: React.FC = (): JSX.Element => {
-  // console.log('BasketCheckout Render');
-
-  const productCount = 2;
+  const { products } = useContext(ProductsContext);
+  console.log(products);
+  const productCount = products.length;
   const currency = '$';
   const subtotal = 2.99;
 
@@ -15,6 +18,7 @@ export const BasketCheckout: React.FC = (): JSX.Element => {
 
   return (
     <div className="basket__checkout">
+      {/* <CurrencyFormat /> */}
       <div className="basket__checkout_header">
         <span className="basket__subtotal">
           {title}
@@ -34,3 +38,21 @@ export const BasketCheckout: React.FC = (): JSX.Element => {
     </div>
   );
 };
+
+// <CurrencyFormat
+//   renderText={(value) => (
+//     <>
+//       <p>
+//         Subtotal (o items): <strong>0</strong>
+//       </p>
+//       <small>
+//         <input type="checkbox" /> This order contains a gift
+//       </small>
+//     </>
+//   )}
+//   decimalScale={2}
+//   value={value}
+//   displayType="text"
+//   thousandSeparator
+//   prefix="$"
+// />;

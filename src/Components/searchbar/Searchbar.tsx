@@ -16,8 +16,8 @@ export const Searchbar: React.FC = (): JSX.Element => {
     <div className="searchbar">
       <select className="searchbar__select" onChange={handleSelect}>
         {choosenDepartment && <option>{choosenDepartment}</option>}
-        {departments.map((option) => (
-          <option>{option}</option>
+        {departments.map((option, index) => (
+          <option key={index.toString()}>{option}</option>
         ))}
       </select>
       <input className="searchbar__input" type="text" />

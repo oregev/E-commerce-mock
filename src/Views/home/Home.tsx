@@ -3,7 +3,7 @@ import { useState, useEffect } from 'react';
 // Tools
 import { v4 as uuidv4 } from 'uuid';
 // Types
-import { IProduct } from '../../Types/product.type';
+import { IProduct } from '../../Types/product.t';
 // Components
 import { ProductsRow } from '../../Components/products/productsRow/ProductsRow';
 // Utils
