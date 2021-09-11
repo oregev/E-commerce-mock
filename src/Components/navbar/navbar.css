@@ -1,0 +1,51 @@
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.navbar__option {
+  padding: 5px;
+  color: white;
+  border-radius: 3px;
+  border: 1px solid transparent;
+}
+
+.navbar__option:hover {
+  border: 1px solid white;
+}
+.account,
+.orders,
+.prime {
+  display: flex;
+  flex-direction: column;
+  min-width: 80px;
+}
+.cart {
+  display: flex;
+  align-items: center;
+}
+.cart__link {
+  text-decoration: none;
+}
+.cart svg {
+  width: 25px;
+  height: 25px;
+  margin-right: 5px;
+  color: white;
+}
+.cart__count {
+  color: rgb(253, 147, 36);
+  font-size: large;
+}
+
+.account__title,
+.orders__title,
+.prime__title {
+  font-size: small;
+}
+.account__subtitle,
+.orders__subtitle,
+.prime__subtitle,
+.cart__count {
+  font-weight: bold;
+}

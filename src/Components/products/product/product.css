@@ -1,0 +1,43 @@
+.product {
+  width: 100%;
+  height: 300px;
+  margin: 10px;
+  padding: 10px;
+  background: white;
+}
+.product__header {
+  height: 35%;
+}
+.product__header h3 {
+  font-weight: normal;
+  margin-bottom: 5px;
+}
+.product__header span {
+  display: inline-block;
+}
+
+.product__body {
+  height: 50%;
+}
+.product__body > img {
+  max-height: 120px;
+  width: 100%;
+  object-fit: contain;
+}
+.product__footer {
+  height: 15%;
+  text-align: center;
+}
+.product__button {
+  background: rgb(253, 214, 52);
+  width: 200px;
+  height: 30px;
+  border: none;
+  border-radius: 5px;
+}
+.product__button:hover {
+  background: rgb(243, 204, 42);
+}
+.product__button:active {
+  background: rgb(253, 214, 52);
+}

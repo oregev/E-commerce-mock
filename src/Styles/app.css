@@ -1,0 +1,12 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --starIconBg: linear-gradient(to bottom, rgb(253, 214, 52), rgb(143, 120, 29));
+
+  --themeYellow: rgb(253, 214, 52);
+  --themeYellowBorder: rgb(169, 142, 35);
+}

@@ -1,0 +1,16 @@
+.amazon-logo_container {
+  width: 100%;
+  padding: 5px;
+  display: flex;
+  align-items: center;
+}
+.amazon-logo_container:hover {
+  border: 1px solid white;
+}
+.amazon-logo {
+  /* margin-top: 18px; */
+  width: 60px;
+  height: auto;
+  object-fit: contain;
+  max-width: 0 20px;
+}
