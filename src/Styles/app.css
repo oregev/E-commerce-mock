@@ -4,9 +4,36 @@
   box-sizing: border-box;
 }
 
+html {
+  overflow-y: scroll;
+}
+
 :root {
   --starIconBg: linear-gradient(to bottom, rgb(253, 214, 52), rgb(143, 120, 29));
 
-  --themeYellow: rgb(253, 214, 52);
-  --themeYellowBorder: rgb(169, 142, 35);
+  --themeBackground: rgba(234, 237, 237, 1);
+
+  --themeYellow: rgba(253, 214, 52, 1);
+  --themeOrange: rgba(252, 184, 101, 1);
+  --themeOrangeDarker: rgba(253, 147, 36, 1);
+
+  --themeYellowBorder1: rgb(168, 135, 52, 1);
+  --themeYellowBorder2: rgb(156, 126, 49, 1);
+  --themeYellowBorder3: rgb(132, 106, 41, 1);
+  --themeYellowBorder: var(--themeYellowBorder1) var(--themeYellowBorder2) var(--themeYellowBorder3);
+
+  --themeWhite: rgba(255, 255, 255, 1);
+  --themeBlack: rgba(0, 0, 0, 1);
+  --themeTransparentBlack: rgba(0, 0, 0, 0);
+
+  --themeGray: rgba(75, 75, 75, 1);
+  --themeLightGray: lightgray;
+  --themeDarkGray: darkgray;
+
+  --themeVeryDarkBlue: rgba(20, 24, 30, 1);
+  --themeVeryLightBlue: rgba(220, 221, 222, 1);
+  --themeSuperLightBLue: rgba(240, 241, 242, 1);
+
+  --themeButton: rgb(253, 214, 52);
+  --themeButtonHover: rgb(243, 204, 42);
 }

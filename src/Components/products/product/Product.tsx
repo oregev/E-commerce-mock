@@ -1,29 +1,39 @@
 // Core
 import { useContext } from 'react';
-import { ProductsContext } from '../../../Context/ProductsContext';
+import { addToBusket, removeFromBusket, BasketContext } from '../../../Context/basket';
+import { CurrencyContext } from '../../../Context/currency';
+// Types
+import { ProductType } from '../../../Context/products';
 // Components
-import { IProduct } from '../../../Types/product.t';
 import { Rating } from '../../rating/Rating';
 // Style
 import './product.css';
 
-interface IProps {
-  data: IProduct;
+interface ProductProps {
+  data: ProductType;
 }
 
-export const Product = ({ data }: IProps): JSX.Element => {
-  const { addProduct } = useContext(ProductsContext);
-  const currency = '$';
-  // eslint-disable-next-line no-unused-vars
-  const { id, title, image, price, rating } = data;
-  const handleClick = () => addProduct(data);
+export const Product = ({ data }: ProductProps): JSX.Element => {
+  const { basketDispatch } = useContext(BasketContext);
+
+  const { currency } = useContext(CurrencyContext);
+  const { id, title, image, price, rating, isInBasket } = data;
+
+  const handleAddProduct = () =>
+    basketDispatch(
+      addToBusket({
+        ...data,
+        isInBasket: true,
+      }),
+    );
+  const handleRemoveProduct = () => basketDispatch(removeFromBusket(id));
 
   return (
     <div className="product">
       <div className="product__header">
         <h3>{title}</h3>
         <span className="product__price">
-          <small>{currency}</small>
+          <small>{currency.coin}</small>
           <strong>{price}</strong>
         </span>
         <Rating rating={rating} />
@@ -32,8 +42,12 @@ export const Product = ({ data }: IProps): JSX.Element => {
         <img src={image} alt="" />
       </div>
       <div className="product__footer">
-        <button className="product__button" type="button" onClick={handleClick}>
-          Add to Basket
+        <button
+          className="product__button"
+          type="button"
+          onClick={isInBasket ? handleRemoveProduct : handleAddProduct}
+        >
+          {isInBasket ? 'Remove from Basket' : 'Add to Basket'}
         </button>
       </div>
     </div>

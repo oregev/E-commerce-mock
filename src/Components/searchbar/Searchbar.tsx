@@ -1,7 +1,7 @@
 // Core
 import { ChangeEvent, useState } from 'react';
 // Material-UI
-import Search from '@material-ui/icons/Search';
+import { Search } from '@mui/icons-material';
 // Data
 import { departments } from './departments';
 // Styles

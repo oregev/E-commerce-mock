@@ -1,8 +1,5 @@
 // Components
-import { Account } from './options/Account';
-import { Cart } from './options/Cart';
-import { Orders } from './options/Orders';
-import { Prime } from './options/Prime';
+import { Account, Cart, Orders, Prime } from './options';
 // Styles
 import './navbar.css';
 

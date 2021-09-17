@@ -1,5 +1,5 @@
 // Gets a non repeating randome number in the sepecific range.
-export const getRandomNumber = (lastRandom: number) => {
+export const getRandomNumber = (lastRandom: number): number => {
   const MIN_IN_ROW = 1;
   const MAX_IN_ROW = 4;
   let current = 0;

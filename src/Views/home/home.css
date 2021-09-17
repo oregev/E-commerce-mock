@@ -1,18 +1,9 @@
-.home {
-  /* padding: 0 20px; */
-  /* max-width: 1500px;
-  display: flex;
-  justify-content: center; */
-  /* mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0)); */
-  /* background-image: linear-gradient(90deg, rgb(10, 30, 60), rgb(100, 130, 160)); */
-}
-
 .home__image {
   width: 100%;
   z-index: -1;
 
   margin-bottom: 150px;
-  mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0));
+  mask-image: linear-gradient(to bottom, var(--themeBlack), var(--themeTransparentBlack));
 }
 
 .products__container {

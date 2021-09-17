@@ -1,5 +1,5 @@
 // Mui
-import { Flag } from '@material-ui/icons';
+import { Flag } from '@mui/icons-material';
 // Components
 import { LogoContainer } from '../logo/LogoContainer';
 import { DeliverTo } from './DeliverTo';
@@ -7,6 +7,7 @@ import { Searchbar } from '../searchbar/Searchbar';
 import { Navbar } from '../navbar/Navbar';
 // Styles
 import './header.css';
+// import { UsFlagIcon } from '../../Assets/icons/UsFlagIcon';
 
 export const Header: React.FC = (): JSX.Element => (
   <div className="header">
@@ -20,6 +21,7 @@ export const Header: React.FC = (): JSX.Element => (
       <Searchbar />
     </div>
     <div className="header__option_container">
+      {/* <UsFlagIcon /> */}
       <Flag style={{ color: 'white' }} />
     </div>
     <div className="header__option_container">

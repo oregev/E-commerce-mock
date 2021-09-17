@@ -2,18 +2,22 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  height: 100%;
 }
 .navbar__option {
-  padding: 5px;
-  color: white;
+  height: 100%;
+  padding: 0 5px;
+  color: var(--themeWhite);
   border-radius: 3px;
   border: 1px solid transparent;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
-
 .navbar__option:hover {
-  border: 1px solid white;
+  border: 1px solid var(--themeWhite);
 }
-.account,
+/* Options */
 .orders,
 .prime {
   display: flex;
@@ -31,13 +35,21 @@
   width: 25px;
   height: 25px;
   margin-right: 5px;
-  color: white;
+  color: var(--themeWhite);
 }
 .cart__count {
-  color: rgb(253, 147, 36);
+  color: var(--themeOrangeDarker);
+  width: 20px;
   font-size: large;
+  text-align: center;
 }
-
+.account__link {
+  color: var(--themeWhite);
+  text-decoration: none;
+  display: flex;
+  flex-direction: column;
+  min-width: 80px;
+}
 .account__title,
 .orders__title,
 .prime__title {

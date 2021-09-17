@@ -3,7 +3,7 @@
   height: 300px;
   margin: 10px;
   padding: 10px;
-  background: white;
+  background: var(--themeWhite);
 }
 .product__header {
   height: 35%;
@@ -29,15 +29,15 @@
   text-align: center;
 }
 .product__button {
-  background: rgb(253, 214, 52);
+  background: var(--themeButton);
   width: 200px;
   height: 30px;
   border: none;
   border-radius: 5px;
 }
 .product__button:hover {
-  background: rgb(243, 204, 42);
+  background: var(--themeButtonHover);
 }
 .product__button:active {
-  background: rgb(253, 214, 52);
+  background: var(--themeButton);
 }

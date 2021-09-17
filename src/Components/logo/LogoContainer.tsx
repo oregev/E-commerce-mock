@@ -6,9 +6,9 @@ import amazonLogoIcon from '../../Assets/images/amazon-logo.png';
 import './logoContainer.css';
 
 export const LogoContainer: React.FC = (): JSX.Element => (
-  <Link to="/">
-    <div className="amazon-logo_container">
+  <div className="amazon-logo_container">
+    <Link to="/">
       <img className="amazon-logo" src={amazonLogoIcon} alt="" />
-    </div>
-  </Link>
+    </Link>
+  </div>
 );

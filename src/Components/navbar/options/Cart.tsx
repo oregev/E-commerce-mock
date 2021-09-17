@@ -1,20 +1,20 @@
 // Core
 import { useContext } from 'react';
 // Mui
-import { ShoppingBasket } from '@material-ui/icons';
+import { ShoppingBasket } from '@mui/icons-material';
 // Router
 import { Link } from 'react-router-dom';
 // context
-import { ProductsContext } from '../../../Context/ProductsContext';
+import { BasketContext } from '../../../Context/basket';
 
 export const Cart: React.FC = (): JSX.Element => {
-  const { products } = useContext(ProductsContext);
+  const { basket } = useContext(BasketContext);
 
   return (
     <Link to="/basket" className="cart__link">
       <div className="cart">
         <ShoppingBasket />
-        <span className="cart__count">{products.length}</span>
+        <span className="cart__count">{basket.products.length}</span>
       </div>
     </Link>
   );

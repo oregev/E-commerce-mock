@@ -1,14 +1,16 @@
-import { LocationOn } from '@material-ui/icons';
+import { LocationOn } from '@mui/icons-material';
 
 interface DeliverToProps {
   location?: string;
 }
 
-export const DeliverTo = ({ location }: DeliverToProps) => (
+export const DeliverTo = ({ location }: DeliverToProps): JSX.Element => (
   <div className="deliver">
-    <p className="deliver__title">Deliver to</p>
-    <LocationOn style={{ color: 'white' }} />
-    <strong className="deliver__country">{location}</strong>
+    <div>
+      <p className="deliver__title">Deliver to</p>
+      <LocationOn style={{ color: 'white' }} />
+      <strong className="deliver__country">{location}</strong>
+    </div>
   </div>
 );
 

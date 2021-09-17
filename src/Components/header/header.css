@@ -4,31 +4,43 @@
   top: 0;
   height: 60px;
   padding: 0px 20px;
-  background: rgb(20, 24, 30);
+  background: var(--themeVeryDarkBlue);
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
-
 .header__option_container {
+  height: 100%;
   padding: 5px;
+  display: flex;
+  align-items: center;
 }
 .header__option_container_flex {
-  width: 60%;
+  width: 100%;
   min-width: 500px;
 }
 .deliver {
-  min-width: 80px;
+  min-width: 100px;
+  width: 100%;
+  height: 100%;
+  padding: 0 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 3px;
+  border: 1px solid transparent;
 }
-
+.deliver:hover {
+  border: 1px solid var(--themeWhite);
+}
 .deliver__title {
-  color: white;
+  color: var(--themeWhite);
   font-size: 12px;
   padding-left: 24px;
   margin-bottom: -10px;
 }
 
 .deliver__country {
-  color: white;
+  color: var(--themeWhite);
   font-size: 14px;
 }

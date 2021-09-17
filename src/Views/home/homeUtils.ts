@@ -1,15 +1,15 @@
 // Network
 import axios from 'axios';
+// Types
+import { ProductType } from '../../Context/products';
 // Utils
 import { getRandomNumber } from '../../Utils/numbersUtil';
-// Types
-import { IProduct } from '../../Types/product.t';
 
 export const fetchProducts = async (): Promise<any> => {
   const url = 'http://localhost:5000/products';
   const config = { headers: { 'Access-Control-Allow-Origin': '*' } };
   try {
-    const { data } = await axios.get<IProduct[]>(url, config);
+    const { data } = await axios.get<ProductType[]>(url, config);
     return data;
   } catch (error) {
     // eslint-disable-next-line no-console
@@ -18,8 +18,8 @@ export const fetchProducts = async (): Promise<any> => {
   return undefined;
 };
 
-export const getProductsPerRow = (products: IProduct[]): IProduct[][] => {
-  const productsPerRow: IProduct[][] = [];
+export const getProductsPerRow = (products: ProductType[]): ProductType[][] => {
+  const productsPerRow: ProductType[][] = [];
   let lastRandom = 0;
   do {
     const randomProductCount = getRandomNumber(lastRandom);

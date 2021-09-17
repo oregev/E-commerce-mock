@@ -1,20 +1,23 @@
 // Core
 import { useContext } from 'react';
-import { ProductsContext } from '../../Context/ProductsContext';
-// Components
-// import { Row } from './Row';
-// import CurrencyFormat from 'react-currency-format';
+// Context
+import { CurrencyContext } from '../../Context/currency';
+import { BasketContext } from '../../Context/basket';
+// Types;
+import { ProductType } from '../../Context/products';
 // Styles
 import './basket.css';
+// Utils
+// import CurrencyFormat from 'react-currency-format';
 
 export const BasketCheckout: React.FC = (): JSX.Element => {
-  const { products } = useContext(ProductsContext);
-  console.log(products);
-  const productCount = products.length;
-  const currency = '$';
-  const subtotal = 2.99;
+  const { currency } = useContext(CurrencyContext);
+  const { basket } = useContext(BasketContext);
+  const subtotal = (basket.products as [])
+    .reduce((acc: number, next: ProductType) => acc + next.price, 0)
+    .toFixed(2);
 
-  const title = `Subtotal (${productCount} items): `;
+  const title = `Subtotal (${basket.products.length} items): `;
 
   return (
     <div className="basket__checkout">
@@ -23,7 +26,7 @@ export const BasketCheckout: React.FC = (): JSX.Element => {
         <span className="basket__subtotal">
           {title}
           <strong>
-            <small>{currency}</small>
+            <small>{currency.coin}</small>
             {subtotal}
           </strong>
         </span>

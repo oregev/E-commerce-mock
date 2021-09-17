@@ -1,12 +1,12 @@
 // Types
-import { IProduct } from '../../../Types/product.t';
+import { ProductType } from '../../../Context/products';
 // Components
 import { Product } from '../product/Product';
 // Style
 import './productsRow.css';
 
 interface IProps {
-  products: IProduct[];
+  products: ProductType[];
 }
 
 export const ProductsRow = ({ products }: IProps): JSX.Element => (

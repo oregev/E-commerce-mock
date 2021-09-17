@@ -5,16 +5,16 @@
   width: 100%;
 }
 .searchbar__select {
-  width: 120px;
+  width: fit-content;
   height: 100%;
-  background-color: rgb(241, 241, 241);
+  background-color: var(--themeSuperLightBLue);
   border: none;
   border-radius: 5px 0 0 5px;
-  border-right: 1px solid rgb(210, 210, 210);
+  border-right: 1px solid var(--themeVeryLightBlue);
   font-size: 12px;
   font-weight: 500;
   padding: 5px;
-  color: rgb(75, 75, 75);
+  color: var(--themeGray);
 }
 .searchbar__select option {
   margin-top: 50%;
@@ -31,7 +31,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  background: rgb(252, 184, 101);
+  background: var(--themeOrange);
   border-radius: 0 5px 5px 0;
 }
 .searchbar__icon {
