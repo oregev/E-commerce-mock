@@ -10,13 +10,16 @@ import { UserContext } from '../../../Context/user';
 
 export const Account: React.FC = (): JSX.Element => {
   const { user } = useContext(UserContext);
-  const userName = user.data?.email || 'Guest';
 
   const handleAuthentication = () => {
     if (user) {
       signOut(auth);
     }
   };
+  const userEmail = user.data?.email ? user.data?.email : null;
+  const userName: string | null | undefined = userEmail
+    ? userEmail.slice(0, userEmail.indexOf('@'))
+    : 'Guest';
 
   return (
     <div className="account">

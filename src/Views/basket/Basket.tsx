@@ -14,13 +14,19 @@ import './basket.css';
 export const Basket: React.FC = (): JSX.Element => {
   const { basket } = useContext(BasketContext);
   const { user } = useContext(UserContext);
+
+  const userEmail = user.data?.email ? user.data?.email : null;
+  const userName: string | null | undefined = userEmail
+    ? userEmail.slice(0, userEmail.indexOf('@'))
+    : 'Guest';
+
   return (
     <div className="basket">
       <div className="basket__left">
         <div className="basket__ad_container">
           <img src={BasketBanner} alt="" />
           <div>
-            <h3>Hello, {user.data?.email || 'Guest'}</h3>
+            <h3>Hello, {userName}</h3>
             <h2 className="basket__title">Your shopping Basket</h2>
           </div>
         </div>
