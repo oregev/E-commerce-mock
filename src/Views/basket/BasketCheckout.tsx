@@ -1,23 +1,23 @@
 // Core
 import { useContext } from 'react';
+// Router
+import { useHistory } from 'react-router-dom';
 // Context
 import { CurrencyContext } from '../../Context/currency';
 import { BasketContext } from '../../Context/basket';
-// Types;
-import { ProductType } from '../../Context/products';
 // Styles
 import './basket.css';
 // Utils
 // import CurrencyFormat from 'react-currency-format';
 
 export const BasketCheckout: React.FC = (): JSX.Element => {
+  const history = useHistory();
   const { currency } = useContext(CurrencyContext);
   const { basket } = useContext(BasketContext);
-  const subtotal = (basket.products as [])
-    .reduce((acc: number, next: ProductType) => acc + next.price, 0)
-    .toFixed(2);
 
   const title = `Subtotal (${basket.products.length} items): `;
+
+  const handleClick = () => history.push('/payment');
 
   return (
     <div className="basket__checkout">
@@ -27,7 +27,7 @@ export const BasketCheckout: React.FC = (): JSX.Element => {
           {title}
           <strong>
             <small>{currency.coin}</small>
-            {subtotal}
+            {basket.subTotal}
           </strong>
         </span>
       </div>
@@ -36,7 +36,9 @@ export const BasketCheckout: React.FC = (): JSX.Element => {
         <span>This order contains a gift</span>
       </div>
       <div className="basket__checkout_footer">
-        <button type="button">Proceed to Checkout</button>
+        <button type="button" onClick={handleClick}>
+          Proceed to Checkout
+        </button>
       </div>
     </div>
   );

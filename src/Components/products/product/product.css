@@ -5,6 +5,9 @@
   padding: 10px;
   background: var(--themeWhite);
 }
+.product:hover {
+  border: 1px solid var(--themeVeryLightBlue);
+}
 .product__header {
   height: 35%;
 }
@@ -40,18 +43,4 @@
 }
 .product__button:active {
   background: var(--themeButton);
-}
-.productEffect-enter {
-  opacity: 0.01;
-}
-.productEffect-enter-active {
-  opacity: 1;
-  transition: opacity 500ms;
-}
-.productEffect-exit {
-  opacity: 1;
-}
-.productEffect-exit-active {
-  opacity: 0.01;
-  transition: opacity 500ms;
 }

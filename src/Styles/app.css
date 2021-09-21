@@ -34,6 +34,22 @@ html {
   --themeVeryLightBlue: rgba(220, 221, 222, 1);
   --themeSuperLightBLue: rgba(240, 241, 242, 1);
 
+  --themeVeryLightTurquoise: rgb(234, 237, 237);
   --themeButton: rgb(253, 214, 52);
   --themeButtonHover: rgb(243, 204, 42);
+}
+
+.productEffect-enter {
+  opacity: 0.01;
+}
+.productEffect-enter-active {
+  opacity: 1;
+  transition: opacity 500ms;
+}
+.productEffect-exit {
+  opacity: 1;
+}
+.productEffect-exit-active {
+  opacity: 0.01;
+  transition: opacity 500ms;
 }

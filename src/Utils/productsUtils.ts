@@ -1,15 +1,14 @@
 // Network
-import axios from 'axios';
+import axios from '../Api/axios';
 // Types
 import { ProductType } from '../Context/products';
 // Utils
 import { getRandomNumber } from './numbersUtil';
 
 export const fetchProducts = async (): Promise<ProductType[]> => {
-  const url = 'http://localhost:5000/products';
-  const config = { headers: { 'Access-Control-Allow-Origin': '*' } };
+  const url = 'products';
   try {
-    const { data } = await axios.get<ProductType[]>(url, config);
+    const { data } = await axios.get<ProductType[]>(url);
     return data;
   } catch (error) {
     // eslint-disable-next-line no-console

@@ -12,5 +12,6 @@ export type BasketAction = {
 
 export type BasketState = {
   products: [] | ProductType[];
+  subTotal: number;
   hasGift: boolean;
 };

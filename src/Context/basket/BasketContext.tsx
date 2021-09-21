@@ -8,6 +8,7 @@ import { BasketState, BasketAction } from './types';
 
 const initialState: BasketState = {
   products: [],
+  subTotal: 0,
   hasGift: false,
 };
 

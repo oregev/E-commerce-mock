@@ -1,8 +1,9 @@
 // Core
-import { useContext } from 'react';
+import { useContext, useState, useEffect } from 'react';
+import { TransitionGroup, CSSTransition } from 'react-transition-group';
 // Context
-import { BasketContext } from '../../Context/basket';
 import { UserContext } from '../../Context/user';
+import { BasketContext } from '../../Context/basket';
 // Components
 import { Product } from '../../Components/products/product/Product';
 import { BasketCheckout } from './BasketCheckout';
@@ -12,13 +13,19 @@ import BasketBanner from '../../Assets/images/basket-banner.jpg';
 import './basket.css';
 
 export const Basket: React.FC = (): JSX.Element => {
-  const { basket } = useContext(BasketContext);
   const { user } = useContext(UserContext);
+  const { basket } = useContext(BasketContext);
 
   const userEmail = user.data?.email ? user.data?.email : null;
   const userName: string | null | undefined = userEmail
     ? userEmail.slice(0, userEmail.indexOf('@'))
     : 'Guest';
+
+  const [mount, setMount] = useState(false);
+  useEffect(() => {
+    setMount(true);
+    return () => setMount(false);
+  }, []);
 
   return (
     <div className="basket">
@@ -31,9 +38,13 @@ export const Basket: React.FC = (): JSX.Element => {
           </div>
         </div>
         <div className="basket__products">
-          {basket.products.map((product) => (
-            <Product key={product.id} data={product} />
-          ))}
+          <TransitionGroup>
+            {basket.products.map((product) => (
+              <CSSTransition in={mount} timeout={500} classNames="productEffect" unmountOnExit>
+                <Product key={product.id} data={product} />
+              </CSSTransition>
+            ))}
+          </TransitionGroup>
         </div>
       </div>
       <div className="basket__right">
