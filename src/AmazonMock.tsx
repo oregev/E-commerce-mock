@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 // Stripe
 import { loadStripe } from '@stripe/stripe-js';
 import { Elements } from '@stripe/react-stripe-js';
+import { publicKey } from './Config/stripe';
 // Context
 import { AppContextProvider } from './Context';
 // Components
@@ -14,9 +15,7 @@ import { Payment } from './Views/payment/Payment';
 // Styles
 import './Styles/amazonMock.css';
 
-const promise = loadStripe(
-  'pk_test_51Jaej6FWhL7kaUpFgiXPiC2fkmK5xHpTMcFTV4VpaZOwnr1T4G6vN0DpRMGjtCUxJfK9GJUX8GSEgSZhLFRYI0ek00wxKrrIgt',
-);
+const promise = loadStripe(publicKey);
 
 export const AmazonMock: React.FC = (): JSX.Element => (
   <div className="amazonMock">
