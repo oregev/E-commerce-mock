@@ -17,7 +17,7 @@ interface ProductProps {
 export const Product = ({ data }: ProductProps): JSX.Element => {
   const { basketDispatch } = useContext(BasketContext);
   const { currency } = useContext(CurrencyContext);
-  const { id, title, image, price, rating, isInBasket } = data;
+  const { id, title, image, price, rating, isInBasket, isButtonHidden } = data;
 
   const handleAddProduct = () =>
     basketDispatch(
@@ -42,13 +42,15 @@ export const Product = ({ data }: ProductProps): JSX.Element => {
         <img src={image} alt="" />
       </div>
       <div className="product__footer">
-        <button
-          className="product__button"
-          type="button"
-          onClick={isInBasket ? handleRemoveProduct : handleAddProduct}
-        >
-          {isInBasket ? 'Remove from Basket' : 'Add to Basket'}
-        </button>
+        {!isButtonHidden && (
+          <button
+            className="product__button"
+            type="button"
+            onClick={isInBasket ? handleRemoveProduct : handleAddProduct}
+          >
+            {isInBasket ? 'Remove from Basket' : 'Add to Basket'}
+          </button>
+        )}
       </div>
     </div>
   );

@@ -1,0 +1,17 @@
+module.exports = {
+  root: true,
+  env: {
+    es6: true,
+    node: true,
+  },
+  extends: ['eslint:recommended', 'google'],
+  rules: {
+    'quotes': ['error', 'single'],
+    'object-curly-spacing': 'off',
+    'max-len': 'off',
+  },
+  parser: '@babel/eslint-parser',
+  parserOptions: {
+    requireConfigFile: false,
+  },
+};

@@ -1,5 +1,5 @@
 // Components
-import { Account, Cart, Orders, Prime } from './options';
+import { Account, Cart, ReturnsAndOrders, Prime } from './options';
 // Styles
 import './navbar.css';
 
@@ -9,7 +9,7 @@ export const Navbar: React.FC = (): JSX.Element => (
       <Account />
     </div>
     <div className="navbar__option">
-      <Orders />
+      <ReturnsAndOrders />
     </div>
     <div className="navbar__option">
       <Prime />

@@ -12,6 +12,8 @@ import { Home } from './Views/home';
 import { Basket } from './Views/basket';
 import { Login } from './Views/login';
 import { Payment } from './Views/payment/Payment';
+import { Orders } from './Views/orders/Orders';
+
 // Styles
 import './Styles/amazonMock.css';
 
@@ -22,6 +24,10 @@ export const AmazonMock: React.FC = (): JSX.Element => (
     <AppContextProvider>
       <Router>
         <Switch>
+          <Route exact path="/orders">
+            <Header />
+            <Orders />
+          </Route>
           <Route exact path="/payment">
             <Header />
             <Elements stripe={promise}>

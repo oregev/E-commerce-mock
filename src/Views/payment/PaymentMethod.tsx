@@ -1,17 +1,25 @@
 // Core
-import { useState, useContext, useEffect } from 'react';
+import { useState, useContext, useEffect, FormEvent } from 'react';
 import { useHistory } from 'react-router-dom';
 // Stripe
 import { CardElementComponent, CardElement, useStripe, useElements } from '@stripe/react-stripe-js';
 import { StripeCardElementChangeEvent } from '@stripe/stripe-js';
+// Firebase
+import { collection, doc, getDoc, setDoc } from 'firebase/firestore';
 // Web
 import axios from '../../Api/axios';
+import { db } from '../../Config';
 // Context
+import { UserContext } from '../../Context/user';
 import { BasketContext } from '../../Context/basket';
+import { emptyBusket } from '../../Context/basket/actions';
+// Components
+import { GenericModal } from '../../Components/common/genericModal/GenericModal';
 
 export const PaymentMethod = (): JSX.Element => {
   const history = useHistory();
-  const { basket } = useContext(BasketContext);
+  const { basket, basketDispatch } = useContext(BasketContext);
+  const { user } = useContext(UserContext);
 
   const [error, setError] = useState<string | null>(null);
   const [disabled, setDisabled] = useState<boolean>(true);
@@ -24,24 +32,22 @@ export const PaymentMethod = (): JSX.Element => {
 
   // Runs once when the app start a subsequently when basket change.
   useEffect(() => {
-    const getClientSecret = async () => {
+    const getClientSecret = async (): Promise<void> => {
       const url = `payments/create?total=${basket.subTotal * 100}`;
       setProcessing(true);
       try {
         const response = await axios.post(url);
         setClientSecret(response.data.clientSecret);
+        setProcessing(false);
+        setDisabled(true);
       } catch (err) {
-        // eslint-disable-next-line no-console
-        console.log('Error gettin secret');
+        setError('An error');
       }
     };
     getClientSecret();
   }, [basket]);
 
-  console.log('The secret is >>> ', clientSecret);
-
-  const handleSubmit = async (event: any) => {
-    // StripeCardElementChangeEvent
+  const handleSubmit = async (event: FormEvent<HTMLFormElement>): Promise<void> => {
     event.preventDefault();
     setProcessing(true);
     if (clientSecret) {
@@ -53,14 +59,33 @@ export const PaymentMethod = (): JSX.Element => {
             card: elements?.getElement(CardElement),
           },
         });
-        console.log('payload ->', payload);
+
+        if (payload) {
+          const { paymentIntent } = payload;
+          const usersRef = collection(db, 'users');
+
+          try {
+            await setDoc(doc(usersRef, `${user.data?.uid}`), {
+              orders: {
+                basket,
+                amount: paymentIntent?.amount,
+                created: paymentIntent?.created,
+              },
+            });
+          } catch (err) {
+            console.log('error updating DB', err);
+          }
+        }
+
         setSucceeded(true);
         setError(null);
         setProcessing(false);
-        // const { paymentIntent } = payload;
+
+        basketDispatch(emptyBusket());
         history.replace('/orders');
-      } catch (submitError) {
-        console.log('Error while submitting:', submitError);
+      } catch (err) {
+        console.log(err);
+        setError('An error');
       }
     }
   };
@@ -80,11 +105,11 @@ export const PaymentMethod = (): JSX.Element => {
           <CardElement onChange={handleChange} />
           <div className="payment__priceContainer">
             <h3>Order Total: ${basket.subTotal}</h3>
-            <button type="button" disabled={!!processing || disabled || succeeded}>
+            <button type="submit" disabled={!!processing || disabled || succeeded}>
               <span>{processing ? <p>Processing</p> : 'Buy Now'}</span>
             </button>
           </div>
-          {error && <div>{error}</div>}
+          <GenericModal isOpen={!!error} text={error} closeFunction={() => setError(null)} />
         </form>
       </div>
     </>

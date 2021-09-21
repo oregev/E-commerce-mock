@@ -27,10 +27,10 @@ export const Payment = (): JSX.Element => {
           <Addreas />
         </div>
         <div className="payment__section">
-          <ProductsList />
+          <PaymentMethod />
         </div>
         <div className="payment__section">
-          <PaymentMethod />
+          <ProductsList />
         </div>
       </div>
     </div>

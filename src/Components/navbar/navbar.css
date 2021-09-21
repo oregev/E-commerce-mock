@@ -18,7 +18,7 @@
   border: 1px solid var(--themeWhite);
 }
 /* Options */
-.orders,
+.returns__orders,
 .prime {
   display: flex;
   flex-direction: column;
@@ -28,8 +28,13 @@
   display: flex;
   align-items: center;
 }
-.cart__link {
+.cart__link,
+.orders__link {
   text-decoration: none;
+}
+.orders__title,
+.orders__subtitle {
+  color: white;
 }
 .cart svg {
   width: 25px;

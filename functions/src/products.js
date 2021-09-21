@@ -22,7 +22,7 @@ const products = [
   },
   {
     id: v4(),
-    title: "Samsung LC49RG90SSUXEN 49' Curved LED Gaming Monitor",
+    title: 'Samsung LC49RG90SSUXEN 49\' Curved LED Gaming Monitor',
     image: 'https://images-na.ssl-images-amazon.com/images/I/71Swqqe7XAL._AC_SX466_.jpg',
     price: 199.99,
     rating: 3,
@@ -48,7 +48,7 @@ const products = [
   {
     id: v4(),
     title:
-      "Samsung LC49RG90SSUXEN 49' Curved LED Gaming Monitor - Super Ultra Wide Dual WQHD 5120 x 1440",
+      'Samsung LC49RG90SSUXEN 49\' Curved LED Gaming Monitor - Super Ultra Wide Dual WQHD 5120 x 1440',
     image: 'https://images-na.ssl-images-amazon.com/images/I/6125mFrzr6L._AC_SX355_.jpg',
     price: 1094.98,
     rating: 4,
@@ -75,7 +75,7 @@ const products = [
   },
   {
     id: v4(),
-    title: "Samsung LC49RG90SSUXEN 49' Curved LED Gaming Monitor",
+    title: 'Samsung LC49RG90SSUXEN 49\' Curved LED Gaming Monitor',
     image: 'https://images-na.ssl-images-amazon.com/images/I/71Swqqe7XAL._AC_SX466_.jpg',
     price: 199.99,
     rating: 3,
@@ -101,7 +101,7 @@ const products = [
   {
     id: v4(),
     title:
-      "Samsung LC49RG90SSUXEN 49' Curved LED Gaming Monitor - Super Ultra Wide Dual WQHD 5120 x 1440",
+      'Samsung LC49RG90SSUXEN 49\' Curved LED Gaming Monitor - Super Ultra Wide Dual WQHD 5120 x 1440',
     image: 'https://images-na.ssl-images-amazon.com/images/I/6125mFrzr6L._AC_SX355_.jpg',
     price: 1094.98,
     rating: 4,

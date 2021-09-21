@@ -10,7 +10,7 @@ export const basketReducer = (state: BasketState, action: BasketAction): BasketS
 
   switch (type) {
     case BasketActionTypes.addToBasket: {
-      if (typeof payload !== 'number') {
+      if (typeof payload !== 'number' && typeof payload !== 'undefined') {
         const newBasket = [payload, ...state.products];
         const subtotal = +getSubTotal(newBasket).toFixed(2);
         return {
@@ -30,6 +30,12 @@ export const basketReducer = (state: BasketState, action: BasketAction): BasketS
         ...state,
         products: [...newBasket],
         subTotal: subtotal,
+      };
+    }
+    case BasketActionTypes.emptyBusket: {
+      return {
+        ...state,
+        products: [],
       };
     }
     default: {

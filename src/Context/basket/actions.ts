@@ -11,3 +11,7 @@ export const removeFromBusket = (id: number): BasketAction => ({
   type: BasketActionTypes.removeFromBusket,
   payload: id,
 });
+
+export const emptyBusket = (): BasketAction => ({
+  type: BasketActionTypes.emptyBusket,
+});
